@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📐 Compositions of Trig Functions - رياضيات 11 متقدم | Mr. Mohammed Hesham</title>
+<meta name="description" content="امتحان تفاعلي عن إيجاد نواتج تراكيب الدوال المثلثية - رياضيات 11 متقدم">
+<meta name="author" content="Mr. Mohammed Hesham">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Cairo', sans-serif; background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%); }
+body.en-mode { font-family: 'Inter', sans-serif; direction: ltr; }
+.arabic-math { font-family: 'Amiri', 'Cairo', serif; }
+.correct { background-color: #dcfce7 !important; border-color: #16a34a !important; }
+.incorrect { background-color: #fee2e2 !important; border-color: #dc2626 !important; }
+.timer-warning { color: #dc2626 !important; animation: pulse 1s infinite; }
+@keyframes pulse { 50% { opacity: 0.7; } }
+@media print { .no-print { display: none !important; } }
+.success-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-weight: bold; font-size: 0.875rem; }
+.grade-excellent { background: #dcfce7; color: #166534; }
+.grade-good { background: #fef3c7; color: #92400e; }
+.grade-pass { background: #dbeafe; color: #1e40af; }
+.grade-fail { background: #fee2e2; color: #991b1b; }
+.lang-switch { position: fixed; top: 16px; left: 16px; z-index: 100; background: white; padding: 6px; border-radius: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); display: flex; gap: 4px; border: 2px solid #7c3aed; }
+body.en-mode .lang-switch { left: auto; right: 16px; }
+.lang-btn { padding: 6px 14px; border-radius: 20px; cursor: pointer; font-weight: bold; transition: all 0.3s; border: none; font-size: 0.875rem; background: transparent; color: #6b7280; }
+.lang-btn.active { background: #7c3aed; color: white; box-shadow: 0 2px 6px rgba(124,58,237,0.4); }
+.shuffle-badge { display: inline-block; background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; margin-right: 8px; }
+body.en-mode .shuffle-badge { margin-right: 0; margin-left: 8px; }
+.math-display { display: inline-block; direction: ltr; font-family: 'Amiri', serif; font-size: 1.1em; padding: 2px 6px; background: #ede9fe; border-radius: 4px; margin: 2px; color: #5b21b6; font-weight: 600; }
+.save-indicator { position: fixed; bottom: 20px; left: 20px; z-index: 200; background: #10b981; color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+body.en-mode .save-indicator { left: auto; right: 20px; }
+.save-indicator.show { opacity: 1; }
+.formula-box { background: #ede9fe; border: 2px solid #7c3aed; border-radius: 8px; padding: 12px; margin: 10px 0; font-family: 'Amiri', serif; direction: ltr; text-align: center; }
+.svg-graph { display: block; margin: 12px auto; background: white; border: 2px solid #e5e7eb; border-radius: 12px; padding: 8px; max-width: 100%; }
+.graph-container { text-align: center; margin: 10px 0; }
+.module-badge { display: inline-block; padding: 4px 16px; border-radius: 20px; font-weight: bold; font-size: 0.85rem; margin-bottom: 8px; }
+.module-1 { background: #ede9fe; color: #5b21b6; }
+.module-2 { background: #dbeafe; color: #1e40af; }
+.module-3 { background: #fce7f3; color: #9f1239; }
+.module-4 { background: #ecfdf5; color: #065f46; }
+.module-5 { background: #fef3c7; color: #92400e; }
+.module-6 { background: #fee2e2; color: #991b1b; }
+.question-card { background: white; border: 2px solid #e5e7eb; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: all 0.3s; }
+.question-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+.solution-box { display: none; background: #f0fdf4; border: 2px solid #16a34a; border-radius: 8px; padding: 15px; margin-top: 15px; animation: slideDown 0.3s ease-out; }
+.solution-box.show { display: block; }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+.check-btn { background: #16a34a; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; margin-right: 5px; transition: all 0.3s; }
+.check-btn:hover { background: #15803d; transform: translateY(-1px); }
+.show-answer-btn { background: #d97706; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; transition: all 0.3s; }
+.show-answer-btn:hover { background: #b45309; transform: translateY(-1px); }
+</style>
+</head>
+<body class="p-4 md:p-8 min-h-screen">
+
+<div class="lang-switch no-print">
+<button class="lang-btn active" onclick="setLanguage('ar')" id="btn-ar">عربي</button>
+<button class="lang-btn" onclick="setLanguage('en')" id="btn-en">EN</button>
+</div>
+
+<div id="saveIndicator" class="save-indicator">💾 <span data-ar="تم الحفظ" data-en="Saved">تم الحفظ</span></div>
+
+<div id="timer-container" class="max-w-5xl mx-auto mb-4 text-center no-print">
+<div class="bg-white p-4 rounded-2xl shadow-lg inline-block border-2 border-purple-100">
+<span class="text-gray-600 ml-2">⏰ <span data-ar="الوقت المتبقي:" data-en="Time Left:">الوقت المتبقي:</span></span>
+<span id="timer" class="text-2xl font-bold text-purple-700 font-mono">75:00</span>
+<span class="shuffle-badge">📐 <span data-ar="تراكيب الدوال المثلثية" data-en="Trig Compositions">تراكيب الدوال المثلثية</span> - 30 <span data-ar="سؤال" data-en="Questions">سؤال</span></span>
+</div>
+</div>
+
+<div class="max-w-5xl mx-auto mb-6 flex flex-wrap gap-3 justify-center no-print">
+<button onclick="toggleAnswers()" class="bg-purple-700 hover:bg-purple-800 text-white px-5 py-2 rounded-xl font-medium transition shadow">👀 <span data-ar="إظهار/إخفاء كل الإجابات" data-en="Show/Hide All Answers">إظهار/إخفاء كل الإجابات</span></button>
+<button onclick="window.print()" class="bg-gray-700 hover:bg-gray-900 text-white px-5 py-2 rounded-xl font-medium transition shadow">🖨️ <span data-ar="طباعة" data-en="Print">طباعة</span></button>
+<button onclick="reshuffleExam()" class="bg-gradient-to-r from-purple-700 to-violet-600 hover:from-purple-800 hover:to-violet-700 text-white px-5 py-2 rounded-xl font-medium transition shadow">🔄 <span data-ar="أسئلة جديدة" data-en="New Questions">أسئلة جديدة</span></button>
+<button onclick="clearProgress()" class="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-xl font-medium transition shadow">🗑️ <span data-ar="مسح التقدم" data-en="Clear Progress">مسح التقدم</span></button>
+</div>
+
+<header class="max-w-5xl mx-auto bg-white p-8 rounded-3xl shadow-2xl mb-8 border-4 border-purple-500">
+<div class="text-center">
+<div class="inline-block bg-purple-700 text-white px-6 py-2 rounded-full text-sm font-bold mb-4">MATH 11 ADVANCED - QUESTION 15</div>
+<h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">📐 <span data-ar="إيجاد نواتج تراكيب الدوال المثلثية" data-en="Compositions of Trigonometric Functions">إيجاد نواتج تراكيب الدوال المثلثية</span></h1>
+<h2 class="text-xl text-purple-700 font-semibold mb-2"><span data-ar="رياضيات 11 متقدم - تمارين 29-40 (صفحة 206)" data-en="Grade 11 Advanced - Exercises 29-40 (Page 206)">رياضيات 11 متقدم - تمارين 29-40 (صفحة 206)</span></h2>
+<p class="text-gray-600 mb-4"><span data-ar="Evaluating sin(sin⁻¹x), cos(tan⁻¹x), and Mixed Compositions" data-en="Evaluating sin(sin⁻¹x), cos(tan⁻¹x), and Mixed Compositions">Evaluating sin(sin⁻¹x), cos(tan⁻¹x), and Mixed Compositions</span></p>
+<p class="text-sm text-green-600 font-semibold">💾 <span data-ar="يتم حفظ تقدمك تلقائياً - 30 سؤالاً في 6 أقسام" data-en="Your progress is auto-saved - 30 questions in 6 sections">يتم حفظ تقدمك تلقائياً - 30 سؤالاً في 6 أقسام</span></p>
+</div>
+<div class="mt-6 flex flex-wrap justify-center gap-4 text-sm text-gray-600">
+<span>📅 <span data-ar="التاريخ:" data-en="Date:">التاريخ:</span> <input type="text" id="examDate" class="border-b-2 border-purple-300 bg-transparent w-32 text-center"></span>
+<span>😊 <span data-ar="الاسم:" data-en="Name:">الاسم:</span> <input type="text" id="studentName" class="border-b-2 border-purple-300 bg-transparent w-40 text-center" data-placeholder-ar="اكتب اسمك" data-placeholder-en="Your name" placeholder="اكتب اسمك"></span>
+<span>🏫 <span data-ar="الشعبة:" data-en="Class:">الشعبة:</span> <input type="text" id="studentClass" class="border-b-2 border-purple-300 bg-transparent w-32 text-center" data-placeholder-ar="الشعبة" data-placeholder-en="Class" placeholder="الشعبة"></span>
+<span>⏰ <span data-ar="المدة: 75 دقيقة" data-en="Duration: 75 min">المدة: 75 دقيقة</span></span>
+<span>📊 <span data-ar="المجموع: 100 درجة" data-en="Total: 100 points">المجموع: 100 درجة</span></span>
+</div>
+</header>
+
+<div class="max-w-5xl mx-auto mb-6 bg-white p-4 rounded-xl shadow-lg border-2 border-purple-200 no-print">
+<h3 class="font-bold text-lg mb-3 text-purple-800 text-center">📐 <span data-ar="القوانين الأساسية للتراكيب" data-en="Key Composition Laws">القوانين الأساسية للتراكيب</span></h3>
+<div class="grid md:grid-cols-3 gap-3 text-sm">
+<div class="formula-box">
+<strong><span data-ar="تراكيب مباشرة:" data-en="Direct Compositions:">تراكيب مباشرة:</span></strong><br>
+<span class="math-display">sin(sin⁻¹x) = x, |x| ≤ 1</span><br>
+<span class="math-display">cos(cos⁻¹x) = x, |x| ≤ 1</span><br>
+<span class="math-display">tan(tan⁻¹x) = x, ∀x</span>
+</div>
+<div class="formula-box">
+<strong><span data-ar="تراكيب عكسية (مع قيود):" data-en="Inverse Compositions (with restrictions):">تراكيب عكسية (مع قيود):</span></strong><br>
+<span data-ar="sin⁻¹(sin x) = x فقط إذا x ∈ [-π/2, π/2]" data-en="sin⁻¹(sin x) = x only if x ∈ [-π/2, π/2]">sin⁻¹(sin x) = x فقط إذا x ∈ [-π/2, π/2]</span><br>
+<span data-ar="cos⁻¹(cos x) = x فقط إذا x ∈ [0, π]" data-en="cos⁻¹(cos x) = x only if x ∈ [0, π]">cos⁻¹(cos x) = x فقط إذا x ∈ [0, π]</span>
+</div>
+<div class="formula-box">
+<strong><span data-ar="تراكيب مختلطة:" data-en="Mixed Compositions:">تراكيب مختلطة:</span></strong><br>
+<span data-ar="استخدم مثلث قائم الزاوية" data-en="Use right triangle">استخدم مثلث قائم الزاوية</span><br>
+<span class="math-display">cos(tan⁻¹x) = 1/√(1+x²)</span><br>
+<span class="math-display">sin(cos⁻¹x) = √(1-x²)</span>
+</div>
+</div>
+</div>
+
+<main class="max-w-5xl mx-auto space-y-8" id="exam-content"></main>
+
+<div class="text-center no-print pb-8 mt-8">
+<button onclick="gradeExam()" class="bg-gradient-to-r from-purple-700 to-violet-600 hover:from-purple-800 hover:to-violet-700 text-white text-lg px-12 py-4 rounded-2xl font-bold shadow-xl transition transform hover:scale-105">🎯 <span data-ar="صحح إجاباتي!" data-en="Grade My Exam!">صحح إجاباتي!</span></button>
+</div>
+
+<div id="results-panel" class="max-w-5xl mx-auto mt-8 bg-white p-8 rounded-3xl shadow-2xl border-4 border-purple-500 hidden no-print">
+<h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">🏆 <span data-ar="نتيجتك يا بطل!" data-en="Your Result, Champion!">نتيجتك يا بطل!</span> 🏆</h2>
+<div class="grid md:grid-cols-3 gap-4 mb-6">
+<div class="bg-purple-50 p-4 rounded-xl text-center"><p>😊 <span data-ar="الاسم" data-en="Name">الاسم</span></p><p id="res-name" class="font-bold text-xl text-purple-700">-</p></div>
+<div class="bg-violet-50 p-4 rounded-xl text-center"><p>📅 <span data-ar="التاريخ" data-en="Date">التاريخ</span></p><p id="res-date" class="font-bold text-xl text-violet-700">-</p></div>
+<div class="bg-purple-50 p-4 rounded-xl text-center"><p>🌟 <span data-ar="المجموع" data-en="Total">المجموع</span></p><p id="res-total" class="font-bold text-3xl text-purple-700">0 / 100</p></div>
+</div>
+<div class="text-center mb-6">
+<span id="success-badge" class="success-badge grade-excellent">-</span>
+<p id="success-percent" class="text-4xl font-bold text-purple-700 mt-2">0%</p>
+<p class="text-sm text-gray-500"><span data-ar="نسبة النجاح" data-en="Success Rate">نسبة النجاح</span></p>
+</div>
+<div class="bg-gray-50 p-6 rounded-xl mb-6">
+<h3 class="font-bold text-lg mb-4 text-gray-800">📊 <span data-ar="أداؤك في كل قسم:" data-en="Your Performance by Section:">أداؤك في كل قسم:</span></h3>
+<div class="space-y-3" id="sections-performance"></div>
+</div>
+<div class="text-center">
+<button id="sendEmailBtn" onclick="sendResultsToEmail()" class="bg-gradient-to-r from-purple-700 to-violet-600 text-white text-lg px-8 py-3 rounded-2xl font-bold shadow-xl transition">📧 <span data-ar="أرسل النتيجة للمعلم" data-en="Send Result to Teacher">أرسل النتيجة للمعلم</span></button>
+<p id="emailStatus" class="text-sm mt-2 text-center font-medium"></p>
+</div>
+</div>
+
+<footer class="max-w-5xl mx-auto mt-10 mb-8 text-center text-gray-500 text-sm no-print">
+© Compositions of Trig Functions - Grade 11 Advanced | Mr. Mohammed Hesham 📐
+</footer>
+
+<script>
+const PUBLIC_KEY = "Rb3Lq8tXaFmc5YHUH";
+const SERVICE_ID = "service_w15m64i";
+const TEMPLATE_ID = "template_5b0u2tq";
+const TARGET_EMAIL = "mohammedhesham872@gmail.com";
+emailjs.init(PUBLIC_KEY);
+
+const STORAGE_KEY = 'trig_compositions_grade11_v1';
+const TOTAL_TIME = 4500;
+const TOTAL_QUESTIONS = 30;
+const TOTAL_SECTIONS = 6;
+const QUESTIONS_PER_SECTION = 5;
+
+let currentSeed = null;
+let answersVisible = false;
+let saveIndicatorTimeout = null;
+let currentLang = 'ar';
+let timeRemaining = TOTAL_TIME;
+let timerInterval;
+let examData;
+let correctAnswersMap = {};
+let rng = null;
+
+function mulberry32(a) {
+    return function() {
+        var t = a += 0x6D2B79F5;
+        t = Math.imul(t ^ t >>> 15, t | 1);
+        t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+        return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    }
+}
+
+function showSaveIndicator() {
+    const indicator = document.getElementById('saveIndicator');
+    indicator.classList.add('show');
+    if (saveIndicatorTimeout) clearTimeout(saveIndicatorTimeout);
+    saveIndicatorTimeout = setTimeout(() => indicator.classList.remove('show'), 1500);
+}
+
+function saveState(showIndicator = true) {
+    try {
+        const state = {
+            seed: currentSeed, lang: currentLang,
+            studentName: document.getElementById('studentName').value,
+            studentClass: document.getElementById('studentClass').value,
+            examDate: document.getElementById('examDate').value,
+            answers: getSelectedAnswers(),
+            timeRemaining: timeRemaining,
+            answersVisible: answersVisible, savedAt: Date.now()
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        if (showIndicator) showSaveIndicator();
+    } catch (e) { console.error('Save error:', e); }
+}
+
+function loadState() {
+    try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        return saved ? JSON.parse(saved) : null;
+    } catch (e) { return null; }
+}
+
+function getSelectedAnswers() {
+    const answers = {};
+    for (let i = 0; i < TOTAL_QUESTIONS; i++) {
+        const selected = document.querySelector('input[name="q'+i+'"]:checked');
+        if (selected) answers[i] = selected.value;
+    }
+    return answers;
+}
+
+function restoreAnswers(answers) {
+    if (!answers) return;
+    for (const [idx, val] of Object.entries(answers)) {
+        const radio = document.querySelector('input[name="q'+idx+'"][value="'+val+'"]');
+        if (radio) radio.checked = true;
+    }
+}
+
+function clearProgress() {
+    const msg = currentLang === 'ar' ? '⚠️ هل أنت متأكد من مسح كل التقدم؟' : '⚠️ Clear all progress?';
+    if (confirm(msg)) { localStorage.removeItem(STORAGE_KEY); location.reload(); }
+}
+
+function setupAnswerListeners() {
+    document.getElementById('exam-content').addEventListener('change', (e) => {
+        if (e.target.type === 'radio') saveState();
+    });
+}
+
+function setupInputListeners() {
+    ['studentName', 'studentClass', 'examDate'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.addEventListener('input', () => saveState(false));
+            el.addEventListener('blur', () => saveState());
+        }
+    });
+}
+
+// ==================== SVG DIAGRAMS - ACCURATE TRIG VISUALS ====================
+const svgGraphs = {
+    unit_circle: `<svg class="svg-graph" width="450" height="450" viewBox="0 0 450 450" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="440" height="440" rx="12" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+        <text x="225" y="25" text-anchor="middle" font-size="14" fill="#5b21b6" font-weight="bold">📐 دائرة الوحدة - Unit Circle</text>
+        <!-- Axes -->
+        <line x1="50" y1="225" x2="400" y2="225" stroke="#374151" stroke-width="2" marker-end="url(#arrowUC)"/>
+        <line x1="225" y1="400" x2="225" y2="50" stroke="#374151" stroke-width="2" marker-end="url(#arrowUC)"/>
+        <text x="405" y="230" font-size="12" fill="#374151" font-weight="bold">x</text>
+        <text x="215" y="45" font-size="12" fill="#374151" font-weight="bold">y</text>
+        <text x="230" y="240" font-size="11" fill="#374151">O</text>
+        <!-- Unit circle -->
+        <circle cx="225" cy="225" r="150" fill="none" stroke="#7c3aed" stroke-width="2"/>
+        <!-- Key angles -->
+        <!-- 0° / 2π -->
+        <circle cx="375" cy="225" r="4" fill="#dc2626"/>
+        <text x="380" y="220" font-size="9" fill="#dc2626" font-weight="bold">0, 2π</text>
+        <text x="380" y="235" font-size="8" fill="#dc2626">(1,0)</text>
+        <!-- π/2 -->
+        <circle cx="225" cy="75" r="4" fill="#dc2626"/>
+        <text x="230" y="70" font-size="9" fill="#dc2626" font-weight="bold">π/2</text>
+        <text x="230" y="85" font-size="8" fill="#dc2626">(0,1)</text>
+        <!-- π -->
+        <circle cx="75" cy="225" r="4" fill="#dc2626"/>
+        <text x="50" y="220" font-size="9" fill="#dc2626" font-weight="bold">π</text>
+        <text x="50" y="235" font-size="8" fill="#dc2626">(-1,0)</text>
+        <!-- 3π/2 -->
+        <circle cx="225" cy="375" r="4" fill="#dc2626"/>
+        <text x="230" y="390" font-size="9" fill="#dc2626" font-weight="bold">3π/2</text>
+        <text x="230" y="405" font-size="8" fill="#dc2626">(0,-1)</text>
+        <!-- π/6 = 30° -->
+        <line x1="225" y1="225" x2="355" y2="150" stroke="#16a34a" stroke-width="1.5"/>
+        <circle cx="355" cy="150" r="4" fill="#16a34a"/>
+        <text x="360" y="145" font-size="9" fill="#16a34a" font-weight="bold">π/6</text>
+        <text x="360" y="160" font-size="8" fill="#16a34a">(√3/2, 1/2)</text>
+        <!-- π/4 = 45° -->
+        <line x1="225" y1="225" x2="331" y2="119" stroke="#2563eb" stroke-width="1.5"/>
+        <circle cx="331" cy="119" r="4" fill="#2563eb"/>
+        <text x="335" y="115" font-size="9" fill="#2563eb" font-weight="bold">π/4</text>
+        <text x="335" y="130" font-size="8" fill="#2563eb">(√2/2, √2/2)</text>
+        <!-- π/3 = 60° -->
+        <line x1="225" y1="225" x2="300" y2="95" stroke="#f59e0b" stroke-width="1.5"/>
+        <circle cx="300" cy="95" r="4" fill="#f59e0b"/>
+        <text x="305" y="90" font-size="9" fill="#f59e0b" font-weight="bold">π/3</text>
+        <text x="305" y="105" font-size="8" fill="#f59e0b">(1/2, √3/2)</text>
+        <!-- Radius label -->
+        <text x="280" y="200" font-size="11" fill="#7c3aed" font-weight="bold">r = 1</text>
+        <!-- Formula -->
+        <rect x="20" y="410" width="400" height="25" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+        <text x="225" y="427" text-anchor="middle" font-size="10" fill="#92400e" font-weight="bold">P(x,y) = (cos θ, sin θ) on unit circle</text>
+        <defs><marker id="arrowUC" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#374151"/></marker></defs>
+    </svg>`,
+    
+    inverse_domains: `<svg class="svg-graph" width="450" height="320" viewBox="0 0 450 320" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="440" height="310" rx="12" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+        <text x="225" y="25" text-anchor="middle" font-size="14" fill="#9f1239" font-weight="bold">📐 مجالات الدوال المثلثية العكسية</text>
+        <!-- sin⁻¹ -->
+        <rect x="20" y="45" width="400" height="60" rx="6" fill="#fbcfe8" stroke="#ec4899" stroke-width="2"/>
+        <text x="220" y="65" text-anchor="middle" font-size="11" fill="#9f1239" font-weight="bold">y = sin⁻¹(x)</text>
+        <text x="220" y="82" text-anchor="middle" font-size="10" fill="#9f1239">Domain: [-1, 1], Range: [-π/2, π/2]</text>
+        <text x="220" y="97" text-anchor="middle" font-size="9" fill="#9f1239">مجال: [-1,1]، مدى: [-π/2, π/2]</text>
+        <!-- cos⁻¹ -->
+        <rect x="20" y="115" width="400" height="60" rx="6" fill="#fbcfe8" stroke="#ec4899" stroke-width="2"/>
+        <text x="220" y="135" text-anchor="middle" font-size="11" fill="#9f1239" font-weight="bold">y = cos⁻¹(x)</text>
+        <text x="220" y="152" text-anchor="middle" font-size="10" fill="#9f1239">Domain: [-1, 1], Range: [0, π]</text>
+        <text x="220" y="167" text-anchor="middle" font-size="9" fill="#9f1239">مجال: [-1,1]، مدى: [0, π]</text>
+        <!-- tan⁻¹ -->
+        <rect x="20" y="185" width="400" height="60" rx="6" fill="#fbcfe8" stroke="#ec4899" stroke-width="2"/>
+        <text x="220" y="205" text-anchor="middle" font-size="11" fill="#9f1239" font-weight="bold">y = tan⁻¹(x)</text>
+        <text x="220" y="222" text-anchor="middle" font-size="10" fill="#9f1239">Domain: (-∞, +∞), Range: (-π/2, π/2)</text>
+        <text x="220" y="237" text-anchor="middle" font-size="9" fill="#9f1239">مجال: R، مدى: (-π/2, π/2)</text>
+        <!-- Key identities -->
+        <rect x="20" y="255" width="400" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+        <text x="220" y="275" text-anchor="middle" font-size="11" fill="#92400e" font-weight="bold">Key Identities:</text>
+        <text x="220" y="293" text-anchor="middle" font-size="10" fill="#92400e">sin(sin⁻¹x) = x | cos(cos⁻¹x) = x | tan(tan⁻¹x) = x</text>
+    </svg>`,
+    
+    right_triangle: `<svg class="svg-graph" width="450" height="320" viewBox="0 0 450 320" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="440" height="310" rx="12" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+        <text x="225" y="25" text-anchor="middle" font-size="14" fill="#065f46" font-weight="bold">📐 المثلث القائم للتراكيب المختلطة</text>
+        <!-- Right triangle -->
+        <polygon points="100,250 300,250 300,130" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+        <!-- Right angle mark -->
+        <rect x="285" y="235" width="15" height="15" fill="none" stroke="#10b981" stroke-width="1.5"/>
+        <!-- Labels -->
+        <text x="200" y="270" text-anchor="middle" font-size="12" fill="#065f46" font-weight="bold">adjacent (مجاور) = x</text>
+        <text x="320" y="200" font-size="12" fill="#065f46" font-weight="bold">opposite</text>
+        <text x="320" y="218" font-size="12" fill="#065f46" font-weight="bold">(مقابل) = y</text>
+        <text x="170" y="180" font-size="12" fill="#065f46" font-weight="bold">hypotenuse</text>
+        <text x="170" y="198" font-size="12" fill="#065f46" font-weight="bold">(وتر) = √(x²+y²)</text>
+        <!-- Angle θ -->
+        <path d="M 130 250 A 30 30 0 0 0 125 230" fill="none" stroke="#dc2626" stroke-width="2"/>
+        <text x="140" y="240" font-size="12" fill="#dc2626" font-weight="bold">θ</text>
+        <!-- Formulas -->
+        <rect x="20" y="275" width="400" height="30" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+        <text x="225" y="295" text-anchor="middle" font-size="10" fill="#92400e" font-weight="bold">If tan θ = y/x, then cos θ = x/√(x²+y²), sin θ = y/√(x²+y²)</text>
+    </svg>`,
+    
+    special_angles_table: `<svg class="svg-graph" width="450" height="360" viewBox="0 0 450 360" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="440" height="350" rx="12" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+        <text x="225" y="25" text-anchor="middle" font-size="14" fill="#92400e" font-weight="bold">📊 جدول الزوايا الخاصة</text>
+        <!-- Header -->
+        <rect x="20" y="40" width="400" height="30" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>
+        <text x="70" y="60" text-anchor="middle" font-size="10" fill="#92400e" font-weight="bold">θ</text>
+        <text x="150" y="60" text-anchor="middle" font-size="10" fill="#92400e" font-weight="bold">sin θ</text>
+        <text x="230" y="60" text-anchor="middle" font-size="10" fill="#92400e" font-weight="bold">cos θ</text>
+        <text x="310" y="60" text-anchor="middle" font-size="10" fill="#92400e" font-weight="bold">tan θ</text>
+        <text x="380" y="60" text-anchor="middle" font-size="10" fill="#92400e" font-weight="bold">θ (deg)</text>
+        <!-- Row 1: 0 -->
+        <rect x="20" y="70" width="400" height="28" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+        <text x="70" y="88" text-anchor="middle" font-size="10" fill="#92400e">0</text>
+        <text x="150" y="88" text-anchor="middle" font-size="10" fill="#92400e">0</text>
+        <text x="230" y="88" text-anchor="middle" font-size="10" fill="#92400e">1</text>
+        <text x="310" y="88" text-anchor="middle" font-size="10" fill="#92400e">0</text>
+        <text x="380" y="88" text-anchor="middle" font-size="10" fill="#92400e">0°</text>
+        <!-- Row 2: π/6 -->
+        <rect x="20" y="98" width="400" height="28" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+        <text x="70" y="116" text-anchor="middle" font-size="10" fill="#92400e">π/6</text>
+        <text x="150" y="116" text-anchor="middle" font-size="10" fill="#92400e">1/2</text>
+        <text x="230" y="116" text-anchor="middle" font-size="10" fill="#92400e">√3/2</text>
+        <text x="310" y="116" text-anchor="middle" font-size="10" fill="#92400e">√3/3</text>
+        <text x="380" y="116" text-anchor="middle" font-size="10" fill="#92400e">30°</text>
+        <!-- Row 3: π/4 -->
+        <rect x="20" y="126" width="400" height="28" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+        <text x="70" y="144" text-anchor="middle" font-size="10" fill="#92400e">π/4</text>
+        <text x="150" y="144" text-anchor="middle" font-size="10" fill="#92400e">√2/2</text>
+        <text x="230" y="144" text-anchor="middle" font-size="10" fill="#92400e">√2/2</text>
+        <text x="310" y="144" text-anchor="middle" font-size="10" fill="#92400e">1</text>
+        <text x="380" y="144" text-anchor="middle" font-size="10" fill="#92400e">45°</text>
+        <!-- Row 4: π/3 -->
+        <rect x="20" y="154" width="400" height="28" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+        <text x="70" y="172" text-anchor="middle" font-size="10" fill="#92400e">π/3</text>
+        <text x="150" y="172" text-anchor="middle" font-size="10" fill="#92400e">√3/2</text>
+        <text x="230" y="172" text-anchor="middle" font-size="10" fill="#92400e">1/2</text>
+        <text x="310" y="172" text-anchor="middle" font-size="10" fill="#92400e">√3</text>
+        <text x="380" y="172" text-anchor="middle" font-size="10" fill="#92400e">60°</text>
+        <!-- Row 5: π/2 -->
+        <rect x="20" y="182" width="400" height="28" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+        <text x="70" y="200" text-anchor="middle" font-size="10" fill="#92400e">π/2</text>
+        <text x="150" y="200" text-anchor="middle" font-size="10" fill="#92400e">1</text>
+        <text x="230" y="200" text-anchor="middle" font-size="10" fill="#92400e">0</text>
+        <text x="310" y="200" text-anchor="middle" font-size="10" fill="#92400e">∞</text>
+        <text x="380" y="200" text-anchor="middle" font-size="10" fill="#92400e">90°</text>
+        <!-- Row 6: π -->
+        <rect x="20" y="210" width="400" height="28" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+        <text x="70" y="228" text-anchor="middle" font-size="10" fill="#92400e">π</text>
+        <text x="150" y="228" text-anchor="middle" font-size="10" fill="#92400e">0</text>
+        <text x="230" y="228" text-anchor="middle" font-size="10" fill="#92400e">-1</text>
+        <text x="310" y="228" text-anchor="middle" font-size="10" fill="#92400e">0</text>
+        <text x="380" y="228" text-anchor="middle" font-size="10" fill="#92400e">180°</text>
+        <!-- Inverse values -->
+        <rect x="20" y="250" width="400" height="95" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+        <text x="225" y="270" text-anchor="middle" font-size="11" fill="#92400e" font-weight="bold">Inverse Values:</text>
+        <text x="225" y="288" text-anchor="middle" font-size="10" fill="#92400e">sin⁻¹(1/2) = π/6, sin⁻¹(√2/2) = π/4, sin⁻¹(√3/2) = π/3, sin⁻¹(1) = π/2</text>
+        <text x="225" y="305" text-anchor="middle" font-size="10" fill="#92400e">cos⁻¹(1/2) = π/3, cos⁻¹(√2/2) = π/4, cos⁻¹(√3/2) = π/6, cos⁻¹(0) = π/2</text>
+        <text x="225" y="322" text-anchor="middle" font-size="10" fill="#92400e">tan⁻¹(√3/3) = π/6, tan⁻¹(1) = π/4, tan⁻¹(√3) = π/3</text>
+        <text x="225" y="339" text-anchor="middle" font-size="10" fill="#92400e">sin⁻¹(0) = 0, cos⁻¹(1) = 0, tan⁻¹(0) = 0</text>
+    </svg>`,
+    
+    composition_rules: `<svg class="svg-graph" width="450" height="360" viewBox="0 0 450 360" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="440" height="350" rx="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+        <text x="225" y="25" text-anchor="middle" font-size="14" fill="#1e40af" font-weight="bold">📐 قواعد التراكيب المثلثية</text>
+        <!-- Rule 1 -->
+        <rect x="20" y="45" width="400" height="50" rx="6" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+        <text x="220" y="65" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="bold">Rule 1: f(f⁻¹(x)) = x</text>
+        <text x="220" y="85" text-anchor="middle" font-size="10" fill="#1e40af">Direct composition always returns x (within domain)</text>
+        <!-- Rule 2 -->
+        <rect x="20" y="105" width="400" height="50" rx="6" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+        <text x="220" y="125" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="bold">Rule 2: f⁻¹(f(x)) = x only if x in range of f⁻¹</text>
+        <text x="220" y="145" text-anchor="middle" font-size="10" fill="#1e40af">Inverse composition requires x in principal range</text>
+        <!-- Rule 3 -->
+        <rect x="20" y="165" width="400" height="50" rx="6" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+        <text x="220" y="185" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="bold">Rule 3: Mixed compositions need triangle method</text>
+        <text x="220" y="205" text-anchor="middle" font-size="10" fill="#1e40af">Use right triangle: if tan θ = x, find sin θ, cos θ</text>
+        <!-- Rule 4 -->
+        <rect x="20" y="225" width="400" height="50" rx="6" fill="#bfdbfe" stroke="#2563eb" stroke-width="2"/>
+        <text x="220" y="245" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="bold">Rule 4: Angle addition/subtraction formulas</text>
+        <text x="220" y="265" text-anchor="middle" font-size="10" fill="#1e40af">cos(A ± B) = cosA·cosB ∓ sinA·sinB</text>
+        <!-- Examples -->
+        <rect x="20" y="285" width="400" height="60" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+        <text x="220" y="303" text-anchor="middle" font-size="10" fill="#92400e" font-weight="bold">Examples:</text>
+        <text x="220" y="318" text-anchor="middle" font-size="9" fill="#92400e">cos(tan⁻¹(1)) = cos(π/4) = √2/2</text>
+        <text x="220" y="333" text-anchor="middle" font-size="9" fill="#92400e">sin(cos⁻¹(√2/2)) = sin(π/4) = √2/2</text>
+        <text x="220" y="345" text-anchor="middle" font-size="9" fill="#92400e">cos(tan⁻¹(1) - sin⁻¹(1)) = cos(π/4 - π/2) = cos(-π/4) = √2/2</text>
+    </svg>`,
+    
+    ex29_30: `<svg class="svg-graph" width="450" height="280" viewBox="0 0 450 280" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="440" height="270" rx="12" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+        <text x="225" y="25" text-anchor="middle" font-size="14" fill="#9f1239" font-weight="bold">📝 تمارين 29-30: sin(sin⁻¹x) و sin⁻¹(sin x)</text>
+        <!-- Exercise 29 -->
+        <rect x="20" y="45" width="400" height="70" rx="6" fill="#fbcfe8" stroke="#ec4899" stroke-width="2"/>
+        <text x="220" y="65" text-anchor="middle" font-size="12" fill="#9f1239" font-weight="bold">29. sin(sin⁻¹(3/4))</text>
+        <text x="220" y="85" text-anchor="middle" font-size="11" fill="#9f1239">Since 3/4 ∈ [-1, 1]: sin(sin⁻¹(3/4)) = 3/4 ✓</text>
+        <text x="220" y="105" text-anchor="middle" font-size="10" fill="#9f1239">Direct composition returns the input</text>
+        <!-- Exercise 30 -->
+        <rect x="20" y="125" width="400" height="70" rx="6" fill="#fbcfe8" stroke="#ec4899" stroke-width="2"/>
+        <text x="220" y="145" text-anchor="middle" font-size="12" fill="#9f1239" font-weight="bold">30. sin⁻¹(sin(π/2))</text>
+        <text x="220" y="165" text-anchor="middle" font-size="11" fill="#9f1239">sin(π/2) = 1, then sin⁻¹(1) = π/2 ✓</text>
+        <text x="220" y="185" text-anchor="middle" font-size="10" fill="#9f1239">Since π/2 ∈ [-π/2, π/2], result is π/2</text>
+        <!-- Key note -->
+        <rect x="20" y="205" width="400" height="55" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+        <text x="220" y="225" text-anchor="middle" font-size="11" fill="#92400e" font-weight="bold">⚠️ Important:</text>
+        <text x="220" y="243" text-anchor="middle" font-size="10" fill="#92400e">sin⁻¹(sin x) = x ONLY if x ∈ [-π/2, π/2]</text>
+        <text x="220" y="258" text-anchor="middle" font-size="10" fill="#92400e">Otherwise, find equivalent angle in principal range</text>
+    </svg>`,
+    
+    ex33_34: `<svg class="svg-graph" width="450" height="280" viewBox="0 0 450 280" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="440" height="270" rx="12" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+        <text x="225" y="25" text-anchor="middle" font-size="14" fill="#065f46" font-weight="bold">📝 تمارين 33-34: tan(tan⁻¹x) و tan⁻¹(tan x)</text>
+        <!-- Exercise 33 -->
+        <rect x="20" y="45" width="400" height="70" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+        <text x="220" y="65" text-anchor="middle" font-size="12" fill="#065f46" font-weight="bold">33. tan(tan⁻¹(π/4))</text>
+        <text x="220" y="85" text-anchor="middle" font-size="11" fill="#065f46">Since π/4 ∈ ℝ: tan(tan⁻¹(π/4)) = π/4 ✓</text>
+        <text x="220" y="105" text-anchor="middle" font-size="10" fill="#065f46">Domain of tan⁻¹ is all real numbers</text>
+        <!-- Exercise 34 -->
+        <rect x="20" y="125" width="400" height="70" rx="6" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+        <text x="220" y="145" text-anchor="middle" font-size="12" fill="#065f46" font-weight="bold">34. tan⁻¹(tan(π/3))</text>
+        <text x="220" y="165" text-anchor="middle" font-size="11" fill="#065f46">tan(π/3) = √3, then tan⁻¹(√3) = π/3 ✓</text>
+        <text x="220" y="185" text-anchor="middle" font-size="10" fill="#065f46">Since π/3 ∈ (-π/2, π/2), result is π/3</text>
+        <!-- Key note -->
+        <rect x="20" y="205" width="400" height="55" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+        <text x="220" y="225" text-anchor="middle" font-size="11" fill="#92400e" font-weight="bold">⚠️ Important:</text>
+        <text x="220" y="243" text-anchor="middle" font-size="10" fill="#92400e">tan⁻¹(tan x) = x ONLY if x ∈ (-π/2, π/2)</text>
+        <text x="220" y="258" text-anchor="middle" font-size="10" fill="#92400e">tan⁻¹ has domain ℝ, range (-π/2, π/2)</text>
+    </svg>`,
+    
+    ex35_36: `<svg class="svg-graph" width="450" height="300" viewBox="0 0 450 300" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="440" height="290" rx="12" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+        <text x="225" y="25" text-anchor="middle" font-size="14" fill="#5b21b6" font-weight="bold">📝 تمارين 35-36: تراكيب مختلطة</text>
+        <!-- Exercise 35 -->
+        <rect x="20" y="45" width="400" height="90" rx="6" fill="#ddd6fe" stroke="#7c3aed" stroke-width="2"/>
+        <text x="220" y="65" text-anchor="middle" font-size="12" fill="#5b21b6" font-weight="bold">35. cos(tan⁻¹(1))</text>
+        <text x="220" y="85" text-anchor="middle" font-size="11" fill="#5b21b6">Let θ = tan⁻¹(1), so tan θ = 1, θ = π/4</text>
+        <text x="220" y="103" text-anchor="middle" font-size="11" fill="#5b21b6">cos(π/4) = √2/2</text>
+        <text x="220" y="123" text-anchor="middle" font-size="10" fill="#5b21b6">Answer: √2/2 ≈ 0.707</text>
+        <!-- Exercise 36 -->
+        <rect x="20" y="145" width="400" height="90" rx="6" fill="#ddd6fe" stroke="#7c3aed" stroke-width="2"/>
+        <text x="220" y="165" text-anchor="middle" font-size="12" fill="#5b21b6" font-weight="bold">36. sin⁻¹(cos(π/2))</text>
+        <text x="220" y="185" text-anchor="middle" font-size="11" fill="#5b21b6">cos(π/2) = 0, then sin⁻¹(0) = 0</text>
+        <text x="220" y="203" text-anchor="middle" font-size="11" fill="#5b21b6">Answer: 0</text>
+        <text x="220" y="223" text-anchor="middle" font-size="10" fill="#5b21b6">Since 0 ∈ [-π/2, π/2] ✓</text>
+        <!-- Triangle method -->
+        <rect x="20" y="245" width="400" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+        <text x="220" y="265" text-anchor="middle" font-size="10" fill="#92400e" font-weight="bold">Triangle Method: If tan θ = 1, opposite=1, adjacent=1, hypotenuse=√2</text>
+    </svg>`,
+    
+    ex37_38: `<svg class="svg-graph" width="450" height="320" viewBox="0 0 450 320" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="440" height="310" rx="12" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+        <text x="225" y="25" text-anchor="middle" font-size="14" fill="#991b1b" font-weight="bold">📝 تمارين 37-38: تراكيب مع معاملات وعمليات</text>
+        <!-- Exercise 37 -->
+        <rect x="20" y="45" width="400" height="100" rx="6" fill="#fecaca" stroke="#dc2626" stroke-width="2"/>
+        <text x="220" y="65" text-anchor="middle" font-size="12" fill="#991b1b" font-weight="bold">37. sin(2cos⁻¹(√2/2))</text>
+        <text x="220" y="85" text-anchor="middle" font-size="11" fill="#991b1b">Let θ = cos⁻¹(√2/2) = π/4</text>
+        <text x="220" y="103" text-anchor="middle" font-size="11" fill="#991b1b">sin(2·π/4) = sin(π/2) = 1</text>
+        <text x="220" y="123" text-anchor="middle" font-size="11" fill="#991b1b" font-weight="bold">Answer: 1</text>
+        <text x="220" y="140" text-anchor="middle" font-size="9" fill="#991b1b">Uses double angle: sin(2θ) = 2sinθ·cosθ</text>
+        <!-- Exercise 38 -->
+        <rect x="20" y="155" width="400" height="100" rx="6" fill="#fecaca" stroke="#dc2626" stroke-width="2"/>
+        <text x="220" y="175" text-anchor="middle" font-size="12" fill="#991b1b" font-weight="bold">38. sin(tan⁻¹(1) - sin⁻¹(1))</text>
+        <text x="220" y="195" text-anchor="middle" font-size="11" fill="#991b1b">tan⁻¹(1) = π/4, sin⁻¹(1) = π/2</text>
+        <text x="220" y="213" text-anchor="middle" font-size="11" fill="#991b1b">sin(π/4 - π/2) = sin(-π/4) = -√2/2</text>
+        <text x="220" y="233" text-anchor="middle" font-size="11" fill="#991b1b" font-weight="bold">Answer: -√2/2 ≈ -0.707</text>
+        <text x="220" y="250" text-anchor="middle" font-size="9" fill="#991b1b">Uses subtraction formula</text>
+        <!-- Key formulas -->
+        <rect x="20" y="265" width="400" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+        <text x="220" y="285" text-anchor="middle" font-size="10" fill="#92400e" font-weight="bold">sin(A-B) = sinA·cosB - cosA·sinB</text>
+    </svg>`,
+    
+    ex39_40: `<svg class="svg-graph" width="450" height="320" viewBox="0 0 450 320" xmlns="http://www.w3.org/2000/svg">
+        <rect x="5" y="5" width="440" height="310" rx="12" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+        <text x="225" y="25" text-anchor="middle" font-size="14" fill="#92400e" font-weight="bold">📝 تمارين 39-40: تراكيب معقدة</text>
+        <!-- Exercise 39 -->
+        <rect x="20" y="45" width="400" height="100" rx="6" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>
+        <text x="220" y="65" text-anchor="middle" font-size="12" fill="#92400e" font-weight="bold">39. cos(tan⁻¹(1) - sin⁻¹(1))</text>
+        <text x="220" y="85" text-anchor="middle" font-size="11" fill="#92400e">tan⁻¹(1) = π/4, sin⁻¹(1) = π/2</text>
+        <text x="220" y="103" text-anchor="middle" font-size="11" fill="#92400e">cos(π/4 - π/2) = cos(-π/4) = cos(π/4) = √2/2</text>
+        <text x="220" y="123" text-anchor="middle" font-size="11" fill="#92400e" font-weight="bold">Answer: √2/2 ≈ 0.707</text>
+        <text x="220" y="140" text-anchor="middle" font-size="9" fill="#92400e">cos is even: cos(-x) = cos(x)</text>
+        <!-- Exercise 40 -->
+        <rect x="20" y="155" width="400" height="100" rx="6" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>
+        <text x="220" y="175" text-anchor="middle" font-size="12" fill="#92400e" font-weight="bold">40. cos(cos⁻¹(0) + sin⁻¹(1/2))</text>
+        <text x="220" y="195" text-anchor="middle" font-size="11" fill="#92400e">cos⁻¹(0) = π/2, sin⁻¹(1/2) = π/6</text>
+        <text x="220" y="213" text-anchor="middle" font-size="11" fill="#92400e">cos(π/2 + π/6) = cos(2π/3) = -1/2</text>
+        <text x="220" y="233" text-anchor="middle" font-size="11" fill="#92400e" font-weight="bold">Answer: -1/2</text>
+        <text x="220" y="250" text-anchor="middle" font-size="9" fill="#92400e">Uses addition formula: cos(A+B) = cosA·cosB - sinA·sinB</text>
+        <!-- Key formulas -->
+        <rect x="20" y="265" width="400" height="40" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+        <text x="220" y="285" text-anchor="middle" font-size="10" fill="#92400e" font-weight="bold">cos(A+B) = cosA·cosB - sinA·sinB</text>
+    </svg>`
+};
+
+// ==================== EXAM DATA - 30 QUESTIONS ====================
+const originalExamData = {
+    sections: [
+        {
+            id: 'sec1',
+            title: { ar: '🔹 القسم 1: تراكيب مباشرة - تمارين 29-32 (Q1-Q5)', en: '🔹 Section 1: Direct Compositions - Exercises 29-32 (Q1-Q5)' },
+            questions: [
+                {
+                    q: { ar: '<strong>تمرين 29:</strong> أوجد قيمة <span class="math-display">sin(sin⁻¹(3/4))</span>', en: '<strong>Exercise 29:</strong> Evaluate <span class="math-display">sin(sin⁻¹(3/4))</span>' },
+                    svg: svgGraphs.ex29_30,
+                    options: [
+                        { ar: '<span class="math-display">3/4</span>', en: '<span class="math-display">3/4</span>' },
+                        { ar: '<span class="math-display">4/3</span>', en: '<span class="math-display">4/3</span>' },
+                        { ar: '<span class="math-display">sin(3/4)</span>', en: '<span class="math-display">sin(3/4)</span>' },
+                        { ar: '<span class="math-display">غير معرّف</span>', en: '<span class="math-display">Undefined</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'بما أن 3/4 ∈ [-1, 1]، فإن sin(sin⁻¹(3/4)) = 3/4 (تراكيب مباشر)', en: 'Since 3/4 ∈ [-1, 1], sin(sin⁻¹(3/4)) = 3/4 (direct composition)' }
+                },
+                {
+                    q: { ar: '<strong>تمرين 30:</strong> أوجد قيمة <span class="math-display">sin⁻¹(sin(π/2))</span>', en: '<strong>Exercise 30:</strong> Evaluate <span class="math-display">sin⁻¹(sin(π/2))</span>' },
+                    options: [
+                        { ar: '<span class="math-display">π/2</span>', en: '<span class="math-display">π/2</span>' },
+                        { ar: '<span class="math-display">1</span>', en: '<span class="math-display">1</span>' },
+                        { ar: '<span class="math-display">0</span>', en: '<span class="math-display">0</span>' },
+                        { ar: '<span class="math-display">-π/2</span>', en: '<span class="math-display">-π/2</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'sin(π/2) = 1، ثم sin⁻¹(1) = π/2. بما أن π/2 ∈ [-π/2, π/2]، النتيجة π/2', en: 'sin(π/2) = 1, then sin⁻¹(1) = π/2. Since π/2 ∈ [-π/2, π/2], result is π/2' }
+                },
+                {
+                    q: { ar: '<strong>تمرين 31:</strong> أوجد قيمة <span class="math-display">cos(cos⁻¹(2/9))</span>', en: '<strong>Exercise 31:</strong> Evaluate <span class="math-display">cos(cos⁻¹(2/9))</span>' },
+                    options: [
+                        { ar: '<span class="math-display">2/9</span>', en: '<span class="math-display">2/9</span>' },
+                        { ar: '<span class="math-display">9/2</span>', en: '<span class="math-display">9/2</span>' },
+                        { ar: '<span class="math-display">cos(2/9)</span>', en: '<span class="math-display">cos(2/9)</span>' },
+                        { ar: '<span class="math-display">غير معرّف</span>', en: '<span class="math-display">Undefined</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'بما أن 2/9 ∈ [-1, 1]، فإن cos(cos⁻¹(2/9)) = 2/9', en: 'Since 2/9 ∈ [-1, 1], cos(cos⁻¹(2/9)) = 2/9' }
+                },
+                {
+                    q: { ar: '<strong>تمرين 32:</strong> أوجد قيمة <span class="math-display">cos⁻¹(cos π)</span>', en: '<strong>Exercise 32:</strong> Evaluate <span class="math-display">cos⁻¹(cos π)</span>' },
+                    options: [
+                        { ar: '<span class="math-display">π</span>', en: '<span class="math-display">π</span>' },
+                        { ar: '<span class="math-display">-1</span>', en: '<span class="math-display">-1</span>' },
+                        { ar: '<span class="math-display">0</span>', en: '<span class="math-display">0</span>' },
+                        { ar: '<span class="math-display">1</span>', en: '<span class="math-display">1</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'cos(π) = -1، ثم cos⁻¹(-1) = π. بما أن π ∈ [0, π]، النتيجة π', en: 'cos(π) = -1, then cos⁻¹(-1) = π. Since π ∈ [0, π], result is π' }
+                },
+                {
+                    q: { ar: '<strong>س5:</strong> متى تكون <span class="math-display">sin⁻¹(sin x) = x</span> صحيحة؟', en: '<strong>Q5:</strong> When is <span class="math-display">sin⁻¹(sin x) = x</span> true?' },
+                    options: [
+                        { ar: 'عندما x ∈ [-π/2, π/2]', en: 'When x ∈ [-π/2, π/2]' },
+                        { ar: 'دائماً', en: 'Always' },
+                        { ar: 'عندما x ∈ [0, π]', en: 'When x ∈ [0, π]' },
+                        { ar: 'عندما x ∈ [-1, 1]', en: 'When x ∈ [-1, 1]' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'sin⁻¹(sin x) = x فقط عندما x ∈ [-π/2, π/2] (مدى sin⁻¹)', en: 'sin⁻¹(sin x) = x only when x ∈ [-π/2, π/2] (range of sin⁻¹)' }
+                }
+            ]
+        },
+        {
+            id: 'sec2',
+            title: { ar: '🔹 القسم 2: تراكيب tan - تمارين 33-34 (Q6-Q10)', en: '🔹 Section 2: tan Compositions - Exercises 33-34 (Q6-Q10)' },
+            questions: [
+                {
+                    q: { ar: '<strong>تمرين 33:</strong> أوجد قيمة <span class="math-display">tan(tan⁻¹(π/4))</span>', en: '<strong>Exercise 33:</strong> Evaluate <span class="math-display">tan(tan⁻¹(π/4))</span>' },
+                    svg: svgGraphs.ex33_34,
+                    options: [
+                        { ar: '<span class="math-display">π/4</span>', en: '<span class="math-display">π/4</span>' },
+                        { ar: '<span class="math-display">1</span>', en: '<span class="math-display">1</span>' },
+                        { ar: '<span class="math-display">tan(π/4)</span>', en: '<span class="math-display">tan(π/4)</span>' },
+                        { ar: '<span class="math-display">4/π</span>', en: '<span class="math-display">4/π</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'بما أن π/4 ∈ ℝ (مجال tan⁻¹ هو كل الأعداد الحقيقية)، فإن tan(tan⁻¹(π/4)) = π/4', en: 'Since π/4 ∈ ℝ (domain of tan⁻¹ is all reals), tan(tan⁻¹(π/4)) = π/4' }
+                },
+                {
+                    q: { ar: '<strong>تمرين 34:</strong> أوجد قيمة <span class="math-display">tan⁻¹(tan(π/3))</span>', en: '<strong>Exercise 34:</strong> Evaluate <span class="math-display">tan⁻¹(tan(π/3))</span>' },
+                    options: [
+                        { ar: '<span class="math-display">π/3</span>', en: '<span class="math-display">π/3</span>' },
+                        { ar: '<span class="math-display">√3</span>', en: '<span class="math-display">√3</span>' },
+                        { ar: '<span class="math-display">π/6</span>', en: '<span class="math-display">π/6</span>' },
+                        { ar: '<span class="math-display">-π/3</span>', en: '<span class="math-display">-π/3</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'tan(π/3) = √3، ثم tan⁻¹(√3) = π/3. بما أن π/3 ∈ (-π/2, π/2)، النتيجة π/3', en: 'tan(π/3) = √3, then tan⁻¹(√3) = π/3. Since π/3 ∈ (-π/2, π/2), result is π/3' }
+                },
+                {
+                    q: { ar: '<strong>س8:</strong> أوجد قيمة <span class="math-display">tan⁻¹(tan(π))</span>', en: '<strong>Q8:</strong> Evaluate <span class="math-display">tan⁻¹(tan(π))</span>' },
+                    options: [
+                        { ar: '<span class="math-display">0</span>', en: '<span class="math-display">0</span>' },
+                        { ar: '<span class="math-display">π</span>', en: '<span class="math-display">π</span>' },
+                        { ar: '<span class="math-display">-π</span>', en: '<span class="math-display">-π</span>' },
+                        { ar: 'غير معرّف', en: 'Undefined' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'tan(π) = 0، ثم tan⁻¹(0) = 0. (π ليس في (-π/2, π/2) لكن tan(π) = 0)', en: 'tan(π) = 0, then tan⁻¹(0) = 0. (π not in (-π/2, π/2) but tan(π) = 0)' }
+                },
+                {
+                    q: { ar: '<strong>س9:</strong> ما مدى دالة <span class="math-display">tan⁻¹(x)</span>؟', en: '<strong>Q9:</strong> What is the range of <span class="math-display">tan⁻¹(x)</span>?' },
+                    options: [
+                        { ar: '<span class="math-display">(-π/2, π/2)</span>', en: '<span class="math-display">(-π/2, π/2)</span>' },
+                        { ar: '<span class="math-display">[-π/2, π/2]</span>', en: '<span class="math-display">[-π/2, π/2]</span>' },
+                        { ar: '<span class="math-display">[0, π]</span>', en: '<span class="math-display">[0, π]</span>' },
+                        { ar: '<span class="math-display">(-∞, +∞)</span>', en: '<span class="math-display">(-∞, +∞)</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'مدى tan⁻¹ هو (-π/2, π/2) - مفتوح عند الطرفين', en: 'Range of tan⁻¹ is (-π/2, π/2) - open at endpoints' }
+                },
+                {
+                    q: { ar: '<strong>س10:</strong> أوجد قيمة <span class="math-display">tan(tan⁻¹(100))</span>', en: '<strong>Q10:</strong> Evaluate <span class="math-display">tan(tan⁻¹(100))</span>' },
+                    options: [
+                        { ar: '<span class="math-display">100</span>', en: '<span class="math-display">100</span>' },
+                        { ar: '<span class="math-display">1/100</span>', en: '<span class="math-display">1/100</span>' },
+                        { ar: '<span class="math-display">tan(100)</span>', en: '<span class="math-display">tan(100)</span>' },
+                        { ar: 'غير معرّف', en: 'Undefined' }
+                    ],
+                    correct: 0,
+                    answer: { ar: '100 ∈ ℝ، إذن tan(tan⁻¹(100)) = 100', en: '100 ∈ ℝ, so tan(tan⁻¹(100)) = 100' }
+                }
+            ]
+        },
+        {
+            id: 'sec3',
+            title: { ar: '🔹 القسم 3: تراكيب مختلطة - تمارين 35-36 (Q11-Q15)', en: '🔹 Section 3: Mixed Compositions - Exercises 35-36 (Q11-Q15)' },
+            questions: [
+                {
+                    q: { ar: '<strong>تمرين 35:</strong> أوجد قيمة <span class="math-display">cos(tan⁻¹(1))</span>', en: '<strong>Exercise 35:</strong> Evaluate <span class="math-display">cos(tan⁻¹(1))</span>' },
+                    svg: svgGraphs.ex35_36,
+                    options: [
+                        { ar: '<span class="math-display">√2/2</span>', en: '<span class="math-display">√2/2</span>' },
+                        { ar: '<span class="math-display">1/2</span>', en: '<span class="math-display">1/2</span>' },
+                        { ar: '<span class="math-display">√3/2</span>', en: '<span class="math-display">√3/2</span>' },
+                        { ar: '<span class="math-display">1</span>', en: '<span class="math-display">1</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'tan⁻¹(1) = π/4، إذن cos(π/4) = √2/2', en: 'tan⁻¹(1) = π/4, so cos(π/4) = √2/2' }
+                },
+                {
+                    q: { ar: '<strong>تمرين 36:</strong> أوجد قيمة <span class="math-display">sin⁻¹(cos(π/2))</span>', en: '<strong>Exercise 36:</strong> Evaluate <span class="math-display">sin⁻¹(cos(π/2))</span>' },
+                    options: [
+                        { ar: '<span class="math-display">0</span>', en: '<span class="math-display">0</span>' },
+                        { ar: '<span class="math-display">π/2</span>', en: '<span class="math-display">π/2</span>' },
+                        { ar: '<span class="math-display">1</span>', en: '<span class="math-display">1</span>' },
+                        { ar: '<span class="math-display">-π/2</span>', en: '<span class="math-display">-π/2</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'cos(π/2) = 0، ثم sin⁻¹(0) = 0', en: 'cos(π/2) = 0, then sin⁻¹(0) = 0' }
+                },
+                {
+                    q: { ar: '<strong>س13:</strong> أوجد قيمة <span class="math-display">sin(cos⁻¹(1/2))</span>', en: '<strong>Q13:</strong> Evaluate <span class="math-display">sin(cos⁻¹(1/2))</span>' },
+                    options: [
+                        { ar: '<span class="math-display">√3/2</span>', en: '<span class="math-display">√3/2</span>' },
+                        { ar: '<span class="math-display">1/2</span>', en: '<span class="math-display">1/2</span>' },
+                        { ar: '<span class="math-display">√2/2</span>', en: '<span class="math-display">√2/2</span>' },
+                        { ar: '<span class="math-display">1</span>', en: '<span class="math-display">1</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'cos⁻¹(1/2) = π/3، إذن sin(π/3) = √3/2', en: 'cos⁻¹(1/2) = π/3, so sin(π/3) = √3/2' }
+                },
+                {
+                    q: { ar: '<strong>س14:</strong> أوجد قيمة <span class="math-display">cos(sin⁻¹(√3/2))</span>', en: '<strong>Q14:</strong> Evaluate <span class="math-display">cos(sin⁻¹(√3/2))</span>' },
+                    options: [
+                        { ar: '<span class="math-display">1/2</span>', en: '<span class="math-display">1/2</span>' },
+                        { ar: '<span class="math-display">√3/2</span>', en: '<span class="math-display">√3/2</span>' },
+                        { ar: '<span class="math-display">√2/2</span>', en: '<span class="math-display">√2/2</span>' },
+                        { ar: '<span class="math-display">0</span>', en: '<span class="math-display">0</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'sin⁻¹(√3/2) = π/3، إذن cos(π/3) = 1/2', en: 'sin⁻¹(√3/2) = π/3, so cos(π/3) = 1/2' }
+                },
+                {
+                    q: { ar: '<strong>س15:</strong> أوجد قيمة <span class="math-display">tan(cos⁻¹(1/2))</span>', en: '<strong>Q15:</strong> Evaluate <span class="math-display">tan(cos⁻¹(1/2))</span>' },
+                    options: [
+                        { ar: '<span class="math-display">√3</span>', en: '<span class="math-display">√3</span>' },
+                        { ar: '<span class="math-display">1/√3</span>', en: '<span class="math-display">1/√3</span>' },
+                        { ar: '<span class="math-display">1</span>', en: '<span class="math-display">1</span>' },
+                        { ar: '<span class="math-display">√3/2</span>', en: '<span class="math-display">√3/2</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'cos⁻¹(1/2) = π/3، إذن tan(π/3) = √3', en: 'cos⁻¹(1/2) = π/3, so tan(π/3) = √3' }
+                }
+            ]
+        },
+        {
+            id: 'sec4',
+            title: { ar: '🔹 القسم 4: تراكيب مع معاملات - تمرين 37 (Q16-Q20)', en: '🔹 Section 4: Compositions with Coefficients - Exercise 37 (Q16-Q20)' },
+            questions: [
+                {
+                    q: { ar: '<strong>تمرين 37:</strong> أوجد قيمة <span class="math-display">sin(2cos⁻¹(√2/2))</span>', en: '<strong>Exercise 37:</strong> Evaluate <span class="math-display">sin(2cos⁻¹(√2/2))</span>' },
+                    svg: svgGraphs.ex37_38,
+                    options: [
+                        { ar: '<span class="math-display">1</span>', en: '<span class="math-display">1</span>' },
+                        { ar: '<span class="math-display">√2/2</span>', en: '<span class="math-display">√2/2</span>' },
+                        { ar: '<span class="math-display">0</span>', en: '<span class="math-display">0</span>' },
+                        { ar: '<span class="math-display">-1</span>', en: '<span class="math-display">-1</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'cos⁻¹(√2/2) = π/4، إذن sin(2·π/4) = sin(π/2) = 1', en: 'cos⁻¹(√2/2) = π/4, so sin(2·π/4) = sin(π/2) = 1' }
+                },
+                {
+                    q: { ar: '<strong>س17:</strong> أوجد قيمة <span class="math-display">cos(2sin⁻¹(1/2))</span>', en: '<strong>Q17:</strong> Evaluate <span class="math-display">cos(2sin⁻¹(1/2))</span>' },
+                    options: [
+                        { ar: '<span class="math-display">1/2</span>', en: '<span class="math-display">1/2</span>' },
+                        { ar: '<span class="math-display">√3/2</span>', en: '<span class="math-display">√3/2</span>' },
+                        { ar: '<span class="math-display">0</span>', en: '<span class="math-display">0</span>' },
+                        { ar: '<span class="math-display">-1/2</span>', en: '<span class="math-display">-1/2</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'sin⁻¹(1/2) = π/6، إذن cos(2·π/6) = cos(π/3) = 1/2', en: 'sin⁻¹(1/2) = π/6, so cos(2·π/6) = cos(π/3) = 1/2' }
+                },
+                {
+                    q: { ar: '<strong>س18:</strong> أوجد قيمة <span class="math-display">sin(2tan⁻¹(1))</span>', en: '<strong>Q18:</strong> Evaluate <span class="math-display">sin(2tan⁻¹(1))</span>' },
+                    options: [
+                        { ar: '<span class="math-display">1</span>', en: '<span class="math-display">1</span>' },
+                        { ar: '<span class="math-display">√2/2</span>', en: '<span class="math-display">√2/2</span>' },
+                        { ar: '<span class="math-display">0</span>', en: '<span class="math-display">0</span>' },
+                        { ar: '<span class="math-display">-1</span>', en: '<span class="math-display">-1</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'tan⁻¹(1) = π/4، إذن sin(2·π/4) = sin(π/2) = 1', en: 'tan⁻¹(1) = π/4, so sin(2·π/4) = sin(π/2) = 1' }
+                },
+                {
+                    q: { ar: '<strong>س19:</strong> أوجد قيمة <span class="math-display">cos(3cos⁻¹(1/2))</span>', en: '<strong>Q19:</strong> Evaluate <span class="math-display">cos(3cos⁻¹(1/2))</span>' },
+                    options: [
+                        { ar: '<span class="math-display">-1</span>', en: '<span class="math-display">-1</span>' },
+                        { ar: '<span class="math-display">1</span>', en: '<span class="math-display">1</span>' },
+                        { ar: '<span class="math-display">1/2</span>', en: '<span class="math-display">1/2</span>' },
+                        { ar: '<span class="math-display">-1/2</span>', en: '<span class="math-display">-1/2</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'cos⁻¹(1/2) = π/3، إذن cos(3·π/3) = cos(π) = -1', en: 'cos⁻¹(1/2) = π/3, so cos(3·π/3) = cos(π) = -1' }
+                },
+                {
+                    q: { ar: '<strong>س20:</strong> أوجد قيمة <span class="math-display">tan(2sin⁻¹(√3/2))</span>', en: '<strong>Q20:</strong> Evaluate <span class="math-display">tan(2sin⁻¹(√3/2))</span>' },
+                    options: [
+                        { ar: '<span class="math-display">-√3</span>', en: '<span class="math-display">-√3</span>' },
+                        { ar: '<span class="math-display">√3</span>', en: '<span class="math-display">√3</span>' },
+                        { ar: '<span class="math-display">1/√3</span>', en: '<span class="math-display">1/√3</span>' },
+                        { ar: '<span class="math-display">-1/√3</span>', en: '<span class="math-display">-1/√3</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'sin⁻¹(√3/2) = π/3، إذن tan(2·π/3) = tan(2π/3) = -√3', en: 'sin⁻¹(√3/2) = π/3, so tan(2·π/3) = tan(2π/3) = -√3' }
+                }
+            ]
+        },
+        {
+            id: 'sec5',
+            title: { ar: '🔹 القسم 5: تراكيب بعمليات - تمارين 38-39 (Q21-Q25)', en: '🔹 Section 5: Compositions with Operations - Exercises 38-39 (Q21-Q25)' },
+            questions: [
+                {
+                    q: { ar: '<strong>تمرين 38:</strong> أوجد قيمة <span class="math-display">sin(tan⁻¹(1) - sin⁻¹(1))</span>', en: '<strong>Exercise 38:</strong> Evaluate <span class="math-display">sin(tan⁻¹(1) - sin⁻¹(1))</span>' },
+                    svg: svgGraphs.ex37_38,
+                    options: [
+                        { ar: '<span class="math-display">-√2/2</span>', en: '<span class="math-display">-√2/2</span>' },
+                        { ar: '<span class="math-display">√2/2</span>', en: '<span class="math-display">√2/2</span>' },
+                        { ar: '<span class="math-display">-1/2</span>', en: '<span class="math-display">-1/2</span>' },
+                        { ar: '<span class="math-display">1/2</span>', en: '<span class="math-display">1/2</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'tan⁻¹(1) = π/4, sin⁻¹(1) = π/2. sin(π/4 - π/2) = sin(-π/4) = -√2/2', en: 'tan⁻¹(1) = π/4, sin⁻¹(1) = π/2. sin(π/4 - π/2) = sin(-π/4) = -√2/2' }
+                },
+                {
+                    q: { ar: '<strong>تمرين 39:</strong> أوجد قيمة <span class="math-display">cos(tan⁻¹(1) - sin⁻¹(1))</span>', en: '<strong>Exercise 39:</strong> Evaluate <span class="math-display">cos(tan⁻¹(1) - sin⁻¹(1))</span>' },
+                    options: [
+                        { ar: '<span class="math-display">√2/2</span>', en: '<span class="math-display">√2/2</span>' },
+                        { ar: '<span class="math-display">-√2/2</span>', en: '<span class="math-display">-√2/2</span>' },
+                        { ar: '<span class="math-display">1/2</span>', en: '<span class="math-display">1/2</span>' },
+                        { ar: '<span class="math-display">-1/2</span>', en: '<span class="math-display">-1/2</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'cos(π/4 - π/2) = cos(-π/4) = cos(π/4) = √2/2 (cos دالة زوجية)', en: 'cos(π/4 - π/2) = cos(-π/4) = cos(π/4) = √2/2 (cos is even)' }
+                },
+                {
+                    q: { ar: '<strong>س23:</strong> أوجد قيمة <span class="math-display">sin(sin⁻¹(1/2) + cos⁻¹(1/2))</span>', en: '<strong>Q23:</strong> Evaluate <span class="math-display">sin(sin⁻¹(1/2) + cos⁻¹(1/2))</span>' },
+                    options: [
+                        { ar: '<span class="math-display">1</span>', en: '<span class="math-display">1</span>' },
+                        { ar: '<span class="math-display">0</span>', en: '<span class="math-display">0</span>' },
+                        { ar: '<span class="math-display">√3/2</span>', en: '<span class="math-display">√3/2</span>' },
+                        { ar: '<span class="math-display">1/2</span>', en: '<span class="math-display">1/2</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'sin⁻¹(1/2) = π/6, cos⁻¹(1/2) = π/3. sin(π/6 + π/3) = sin(π/2) = 1', en: 'sin⁻¹(1/2) = π/6, cos⁻¹(1/2) = π/3. sin(π/6 + π/3) = sin(π/2) = 1' }
+                },
+                {
+                    q: { ar: '<strong>س24:</strong> أوجد قيمة <span class="math-display">cos(cos⁻¹(√3/2) - sin⁻¹(1/2))</span>', en: '<strong>Q24:</strong> Evaluate <span class="math-display">cos(cos⁻¹(√3/2) - sin⁻¹(1/2))</span>' },
+                    options: [
+                        { ar: '<span class="math-display">1</span>', en: '<span class="math-display">1</span>' },
+                        { ar: '<span class="math-display">0</span>', en: '<span class="math-display">0</span>' },
+                        { ar: '<span class="math-display">√3/2</span>', en: '<span class="math-display">√3/2</span>' },
+                        { ar: '<span class="math-display">1/2</span>', en: '<span class="math-display">1/2</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'cos⁻¹(√3/2) = π/6, sin⁻¹(1/2) = π/6. cos(π/6 - π/6) = cos(0) = 1', en: 'cos⁻¹(√3/2) = π/6, sin⁻¹(1/2) = π/6. cos(π/6 - π/6) = cos(0) = 1' }
+                },
+                {
+                    q: { ar: '<strong>س25:</strong> أوجد قيمة <span class="math-display">tan(tan⁻¹(1) + tan⁻¹(0))</span>', en: '<strong>Q25:</strong> Evaluate <span class="math-display">tan(tan⁻¹(1) + tan⁻¹(0))</span>' },
+                    options: [
+                        { ar: '<span class="math-display">1</span>', en: '<span class="math-display">1</span>' },
+                        { ar: '<span class="math-display">0</span>', en: '<span class="math-display">0</span>' },
+                        { ar: '<span class="math-display">√3</span>', en: '<span class="math-display">√3</span>' },
+                        { ar: '<span class="math-display">-1</span>', en: '<span class="math-display">-1</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'tan⁻¹(1) = π/4, tan⁻¹(0) = 0. tan(π/4 + 0) = tan(π/4) = 1', en: 'tan⁻¹(1) = π/4, tan⁻¹(0) = 0. tan(π/4 + 0) = tan(π/4) = 1' }
+                }
+            ]
+        },
+        {
+            id: 'sec6',
+            title: { ar: '🔹 القسم 6: تراكيب معقدة - تمرين 40 ومسائل (Q26-Q30)', en: '🔹 Section 6: Complex Compositions - Exercise 40 & More (Q26-Q30)' },
+            questions: [
+                {
+                    q: { ar: '<strong>تمرين 40:</strong> أوجد قيمة <span class="math-display">cos(cos⁻¹(0) + sin⁻¹(1/2))</span>', en: '<strong>Exercise 40:</strong> Evaluate <span class="math-display">cos(cos⁻¹(0) + sin⁻¹(1/2))</span>' },
+                    svg: svgGraphs.ex39_40,
+                    options: [
+                        { ar: '<span class="math-display">-1/2</span>', en: '<span class="math-display">-1/2</span>' },
+                        { ar: '<span class="math-display">1/2</span>', en: '<span class="math-display">1/2</span>' },
+                        { ar: '<span class="math-display">√3/2</span>', en: '<span class="math-display">√3/2</span>' },
+                        { ar: '<span class="math-display">-√3/2</span>', en: '<span class="math-display">-√3/2</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'cos⁻¹(0) = π/2, sin⁻¹(1/2) = π/6. cos(π/2 + π/6) = cos(2π/3) = -1/2', en: 'cos⁻¹(0) = π/2, sin⁻¹(1/2) = π/6. cos(π/2 + π/6) = cos(2π/3) = -1/2' }
+                },
+                {
+                    q: { ar: '<strong>س27:</strong> أوجد قيمة <span class="math-display">sin(sin⁻¹(1) + cos⁻¹(0))</span>', en: '<strong>Q27:</strong> Evaluate <span class="math-display">sin(sin⁻¹(1) + cos⁻¹(0))</span>' },
+                    options: [
+                        { ar: '<span class="math-display">0</span>', en: '<span class="math-display">0</span>' },
+                        { ar: '<span class="math-display">1</span>', en: '<span class="math-display">1</span>' },
+                        { ar: '<span class="math-display">-1</span>', en: '<span class="math-display">-1</span>' },
+                        { ar: '<span class="math-display">√2/2</span>', en: '<span class="math-display">√2/2</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'sin⁻¹(1) = π/2, cos⁻¹(0) = π/2. sin(π/2 + π/2) = sin(π) = 0', en: 'sin⁻¹(1) = π/2, cos⁻¹(0) = π/2. sin(π/2 + π/2) = sin(π) = 0' }
+                },
+                {
+                    q: { ar: '<strong>س28:</strong> أوجد قيمة <span class="math-display">cos(tan⁻¹(√3))</span>', en: '<strong>Q28:</strong> Evaluate <span class="math-display">cos(tan⁻¹(√3))</span>' },
+                    svg: svgGraphs.right_triangle,
+                    options: [
+                        { ar: '<span class="math-display">1/2</span>', en: '<span class="math-display">1/2</span>' },
+                        { ar: '<span class="math-display">√3/2</span>', en: '<span class="math-display">√3/2</span>' },
+                        { ar: '<span class="math-display">√2/2</span>', en: '<span class="math-display">√2/2</span>' },
+                        { ar: '<span class="math-display">1</span>', en: '<span class="math-display">1</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'tan⁻¹(√3) = π/3، إذن cos(π/3) = 1/2', en: 'tan⁻¹(√3) = π/3, so cos(π/3) = 1/2' }
+                },
+                {
+                    q: { ar: '<strong>س29:</strong> أوجد قيمة <span class="math-display">sin(2sin⁻¹(1))</span>', en: '<strong>Q29:</strong> Evaluate <span class="math-display">sin(2sin⁻¹(1))</span>' },
+                    options: [
+                        { ar: '<span class="math-display">0</span>', en: '<span class="math-display">0</span>' },
+                        { ar: '<span class="math-display">1</span>', en: '<span class="math-display">1</span>' },
+                        { ar: '<span class="math-display">-1</span>', en: '<span class="math-display">-1</span>' },
+                        { ar: '<span class="math-display">√3/2</span>', en: '<span class="math-display">√3/2</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'sin⁻¹(1) = π/2، إذن sin(2·π/2) = sin(π) = 0', en: 'sin⁻¹(1) = π/2, so sin(2·π/2) = sin(π) = 0' }
+                },
+                {
+                    q: { ar: '<strong>س30:</strong> أوجد قيمة <span class="math-display">cos(sin⁻¹(0) + cos⁻¹(1))</span>', en: '<strong>Q30:</strong> Evaluate <span class="math-display">cos(sin⁻¹(0) + cos⁻¹(1))</span>' },
+                    options: [
+                        { ar: '<span class="math-display">1</span>', en: '<span class="math-display">1</span>' },
+                        { ar: '<span class="math-display">0</span>', en: '<span class="math-display">0</span>' },
+                        { ar: '<span class="math-display">-1</span>', en: '<span class="math-display">-1</span>' },
+                        { ar: '<span class="math-display">1/2</span>', en: '<span class="math-display">1/2</span>' }
+                    ],
+                    correct: 0,
+                    answer: { ar: 'sin⁻¹(0) = 0, cos⁻¹(1) = 0. cos(0 + 0) = cos(0) = 1', en: 'sin⁻¹(0) = 0, cos⁻¹(1) = 0. cos(0 + 0) = cos(0) = 1' }
+                }
+            ]
+        }
+    ]
+};
+
+function shuffleArray(array) {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(rng() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
+function prepareShuffledExam() {
+    rng = mulberry32(currentSeed);
+    examData = JSON.parse(JSON.stringify(originalExamData));
+    correctAnswersMap = {};
+    let globalIdx = 0;
+    examData.sections.forEach((section) => {
+        section.questions = shuffleArray(section.questions);
+        section.questions.forEach((q) => {
+            const optionsWithCorrect = q.options.map((opt, idx) => ({ option: opt, isCorrect: idx === q.correct }));
+            const shuffledOptions = shuffleArray(optionsWithCorrect);
+            q.options = shuffledOptions.map(o => o.option);
+            q.correct = shuffledOptions.findIndex(o => o.isCorrect);
+            correctAnswersMap[globalIdx] = String.fromCharCode(97 + q.correct);
+            globalIdx++;
+        });
+    });
+}
+
+function reshuffleExam() {
+    const msg = currentLang === 'ar' ? '🔄 سيتم إنشاء أسئلة جديدة ومسح إجاباتك. هل أنت متأكد؟' : '🔄 New questions will be generated. Are you sure?';
+    if (confirm(msg)) {
+        currentSeed = Date.now(); timeRemaining = TOTAL_TIME; answersVisible = false;
+        prepareShuffledExam(); renderExam(); saveState();
+        alert(currentLang === 'ar' ? '🎲 تم تغيير الأسئلة! حظاً موفقاً! 🍀' : '🎲 Questions changed! Good luck! 🍀');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+}
+
+function setLanguage(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.body.classList.toggle('en-mode', lang === 'en');
+    
+    document.querySelectorAll('[data-ar]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + lang);
+    });
+    
+    document.querySelectorAll('[data-placeholder-ar]').forEach(el => {
+        el.placeholder = el.getAttribute('data-placeholder-' + lang);
+    });
+    
+    renderExam(); saveState(false);
+}
+
+function renderExam() {
+    const container = document.getElementById('exam-content');
+    const labels = { ar: { option: ['أ', 'ب', 'ج', 'د'], answer: '✅ الإجابة:' }, en: { option: ['A', 'B', 'C', 'D'], answer: '✅ Answer:' } };
+    const lbl = labels[currentLang];
+    let html = '';
+    let globalIdx = 0;
+    
+    examData.sections.forEach((section, secIdx) => {
+        const badgeClass = ['module-1', 'module-2', 'module-3', 'module-4', 'module-5', 'module-6'][secIdx];
+        html += '<section class="bg-white p-6 rounded-2xl shadow-lg border-2 border-purple-100">';
+        html += '<div class="text-center mb-4"><span class="module-badge ' + badgeClass + '">' + section.title[currentLang] + '</span></div>';
+        html += '<div class="space-y-4">';
+        
+        section.questions.forEach((q) => {
+            html += '<div class="question-card" id="q-' + globalIdx + '">';
+            html += '<strong class="text-purple-700 text-lg">' + (currentLang === 'ar' ? 'السؤال ' : 'Question ') + (globalIdx + 1) + '</strong><br>';
+            html += '<div class="mt-2">' + q.q[currentLang] + '</div>';
+            if (q.svg) html += '<div class="graph-container">' + q.svg + '</div>';
+            
+            html += '<div class="mt-4 space-y-2">';
+            q.options.forEach((opt, oIdx) => {
+                html += '<label class="cursor-pointer block hover:bg-purple-50 rounded-lg p-3 transition border border-gray-200">';
+                html += '<input type="radio" name="q' + globalIdx + '" value="' + String.fromCharCode(97 + oIdx) + '" class="mr-2 ml-2">';
+                html += '<span class="arabic-math">' + lbl.option[oIdx] + ') ' + opt[currentLang] + '</span>';
+                html += '</label>';
+            });
+            html += '</div>';
+            
+            html += '<div class="flex gap-2 mt-3">';
+            html += '<button onclick="checkAnswer(' + globalIdx + ')" class="check-btn">' + (currentLang === 'ar' ? '✓ تحقق' : '✓ Check') + '</button>';
+            html += '<button onclick="toggleSolution(' + globalIdx + ')" class="show-answer-btn">' + (currentLang === 'ar' ? '📖 أظهر الحل' : '📖 Show Solution') + '</button>';
+            html += '</div>';
+            
+            html += '<div id="solution-' + globalIdx + '" class="solution-box">';
+            html += '<strong class="text-green-700">' + lbl.answer + ' ' + lbl.option[q.correct] + ')</strong> ';
+            html += '<span class="arabic-math text-green-700">' + q.options[q.correct][currentLang] + '</span><br>';
+            html += '<span class="text-sm text-green-700 mt-2 block arabic-math">' + q.answer[currentLang] + '</span>';
+            html += '</div>';
+            html += '</div>';
+            globalIdx++;
+        });
+        
+        html += '</div></section>';
+    });
+    
+    container.innerHTML = html;
+}
+
+function startTimer() {
+    updateTimerDisplay();
+    timerInterval = setInterval(() => {
+        timeRemaining--;
+        updateTimerDisplay();
+        if (timeRemaining % 60 === 0) saveState(false);
+        if (timeRemaining <= 600) document.getElementById('timer').classList.add('timer-warning');
+        if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            alert(currentLang === 'ar' ? "⏰ انتهى الوقت!" : "⏰ Time's up!");
+            gradeExam();
+        }
+    }, 1000);
+}
+
+function updateTimerDisplay() {
+    const m = Math.floor(timeRemaining / 60);
+    const s = timeRemaining % 60;
+    document.getElementById('timer').textContent = m.toString().padStart(2,'0') + ':' + s.toString().padStart(2,'0');
+}
+
+function toggleAnswers() {
+    answersVisible = !answersVisible;
+    document.querySelectorAll('.solution-box').forEach(el => {
+        if (answersVisible) {
+            el.classList.add('show');
+        } else {
+            el.classList.remove('show');
+        }
+    });
+    saveState(false);
+}
+
+function checkAnswer(qId) {
+    const sel = document.querySelector('input[name="q'+qId+'"]:checked');
+    
+    if (!sel) {
+        alert(currentLang === 'ar' ? '⚠️ الرجاء اختيار إجابة أولاً' : '⚠️ Please select an answer first');
+        return;
+    }
+    
+    const isCorrect = sel.value === correctAnswersMap[qId];
+    const card = document.getElementById('q-' + qId);
+    card.classList.remove('correct', 'incorrect');
+    card.classList.add(isCorrect ? 'correct' : 'incorrect');
+    
+    const solution = document.getElementById('solution-' + qId);
+    solution.classList.add('show');
+    
+    if (isCorrect) {
+        alert(currentLang === 'ar' ? '✅ إجابة صحيحة! أحسنت!' : '✅ Correct answer! Well done!');
+    } else {
+        alert(currentLang === 'ar' ? '❌ إجابة غير صحيحة. راجع الحل.' : '❌ Incorrect answer. Check the solution.');
+    }
+}
+
+function toggleSolution(qId) {
+    const solution = document.getElementById('solution-' + qId);
+    solution.classList.toggle('show');
+}
+
+function gradeExam() {
+    let correctCount = 0;
+    const sectionScores = new Array(TOTAL_SECTIONS).fill(0);
+    
+    for (let i = 0; i < TOTAL_QUESTIONS; i++) {
+        const sel = document.querySelector('input[name="q'+i+'"]:checked');
+        const card = document.getElementById('q-' + i);
+        if (card) {
+            const isCorrect = sel && sel.value === correctAnswersMap[i];
+            if (isCorrect) {
+                correctCount++;
+                card.classList.add('correct');
+                card.classList.remove('incorrect');
+                sectionScores[Math.floor(i / QUESTIONS_PER_SECTION)]++;
+            } else {
+                card.classList.add('incorrect');
+                card.classList.remove('correct');
+            }
+        }
+    }
+    
+    const score = Math.round((correctCount / TOTAL_QUESTIONS) * 100);
+    document.getElementById('res-total').textContent = score + ' / 100';
+    document.getElementById('res-name').textContent = document.getElementById('studentName').value || (currentLang === 'ar' ? 'بطل' : 'Champion');
+    document.getElementById('res-date').textContent = new Date().toLocaleDateString(currentLang === 'ar' ? 'ar-AE' : 'en-US');
+    
+    const pc = document.getElementById('sections-performance');
+    pc.innerHTML = '';
+    examData.sections.forEach((s, idx) => {
+        pc.innerHTML += '<div class="flex justify-between items-center p-3 bg-white rounded-lg"><span class="text-gray-700">' + s.title[currentLang] + '</span><span class="font-bold text-purple-700">' + sectionScores[idx] + '/' + QUESTIONS_PER_SECTION + '</span></div>';
+    });
+    
+    const badge = document.getElementById('success-badge');
+    document.getElementById('success-percent').textContent = score + '%';
+    
+    if (currentLang === 'ar') {
+        if (score >= 90) { badge.textContent = '🌟 ممتاز جداً!'; badge.className = 'success-badge grade-excellent'; }
+        else if (score >= 75) { badge.textContent = '👏 ممتاز!'; badge.className = 'success-badge grade-good'; }
+        else if (score >= 50) { badge.textContent = '👍 جيد'; badge.className = 'success-badge grade-pass'; }
+        else { badge.textContent = '💪 حاول مرة أخرى'; badge.className = 'success-badge grade-fail'; }
+    } else {
+        if (score >= 90) { badge.textContent = '🌟 Outstanding!'; badge.className = 'success-badge grade-excellent'; }
+        else if (score >= 75) { badge.textContent = '👏 Excellent!'; badge.className = 'success-badge grade-good'; }
+        else if (score >= 50) { badge.textContent = '👍 Good'; badge.className = 'success-badge grade-pass'; }
+        else { badge.textContent = '💪 Try Again'; badge.className = 'success-badge grade-fail'; }
+    }
+    
+    document.getElementById('results-panel').classList.remove('hidden');
+    document.getElementById('results-panel').scrollIntoView({ behavior: 'smooth' });
+    if (timerInterval) clearInterval(timerInterval);
+}
+
+function sendResultsToEmail() {
+    const btn = document.getElementById('sendEmailBtn');
+    const status = document.getElementById('emailStatus');
+    btn.disabled = true;
+    btn.textContent = currentLang === 'ar' ? '⏳ جاري الإرسال...' : '⏳ Sending...';
+    
+    const name = document.getElementById('studentName').value || 'N/A';
+    const studentClass = document.getElementById('studentClass').value || 'N/A';
+    const date = document.getElementById('examDate').value || new Date().toLocaleDateString();
+    const score = document.getElementById('res-total').textContent;
+    const successRate = document.getElementById('success-percent').textContent;
+    const badge = document.getElementById('success-badge').textContent;
+    
+    let questionsHTML = '<div style="font-family:Arial; direction:rtl;">';
+    questionsHTML += '<h2>📐 ' + (currentLang === 'ar' ? 'نتيجة امتحان تراكيب الدوال المثلثية' : 'Trig Compositions Exam Result') + '</h2>';
+    questionsHTML += '<p><strong>' + (currentLang === 'ar' ? 'الاسم' : 'Name') + ':</strong> ' + name + '</p>';
+    questionsHTML += '<p><strong>' + (currentLang === 'ar' ? 'الشعبة' : 'Class') + ':</strong> ' + studentClass + '</p>';
+    questionsHTML += '<p><strong>' + (currentLang === 'ar' ? 'التاريخ' : 'Date') + ':</strong> ' + date + '</p>';
+    questionsHTML += '<p><strong>' + (currentLang === 'ar' ? 'الدرجة' : 'Score') + ':</strong> ' + score + ' (' + successRate + '%)</p>';
+    questionsHTML += '<p><strong>' + (currentLang === 'ar' ? 'التقدير' : 'Grade') + ':</strong> ' + badge + '</p>';
+    questionsHTML += '<hr><h3>' + (currentLang === 'ar' ? 'تفاصيل الإجابات:' : 'Answer Details:') + '</h3><table style="width:100%; border-collapse:collapse;">';
+    questionsHTML += '<tr style="background:#7c3aed; color:white;"><th style="padding:8px; border:1px solid #ddd;">#</th><th style="padding:8px; border:1px solid #ddd;">' + (currentLang === 'ar' ? 'السؤال' : 'Question') + '</th><th style="padding:8px; border:1px solid #ddd;">' + (currentLang === 'ar' ? 'إجابة الطالب' : 'Student Answer') + '</th><th style="padding:8px; border:1px solid #ddd;">' + (currentLang === 'ar' ? 'الصحيحة' : 'Correct') + '</th><th style="padding:8px; border:1px solid #ddd;">' + (currentLang === 'ar' ? 'النتيجة' : 'Result') + '</th></tr>';
+    
+    let globalIdx = 0;
+    examData.sections.forEach((section) => {
+        questionsHTML += '<tr style="background:#ede9fe;"><td colspan="5" style="padding:8px; font-weight:bold; border:1px solid #ddd;">' + section.title.ar + '</td></tr>';
+        section.questions.forEach((q) => {
+            const sel = document.querySelector('input[name="q'+globalIdx+'"]:checked');
+            const sv = sel ? sel.value : null;
+            const cv = correctAnswersMap[globalIdx];
+            const ic = sv === cv;
+            let sat = currentLang === 'ar' ? '❌ لم يجب' : '❌ No answer';
+            let sac = '#dc2626';
+            if (sv) {
+                const si = sv.charCodeAt(0) - 97;
+                sat = q.options[si][currentLang];
+                sac = ic ? '#16a34a' : '#dc2626';
+            }
+            const cat = q.options[q.correct][currentLang];
+            const rb = ic ? '#f0fdf4' : '#fef2f2';
+            questionsHTML += '<tr style="background:' + rb + ';"><td style="padding:8px; border:1px solid #ddd; text-align:center;">' + (globalIdx+1) + '</td><td style="padding:8px; border:1px solid #ddd;">' + q.q.ar.replace(/<[^>]+>/g, '').substring(0, 80) + '...</td><td style="padding:8px; border:1px solid #ddd; color:' + sac + ';">' + sat + '</td><td style="padding:8px; border:1px solid #ddd; color:#16a34a;">' + cat + '</td><td style="padding:8px; border:1px solid #ddd; text-align:center;">' + (ic?'✅':'❌') + '</td></tr>';
+            globalIdx++;
+        });
+    });
+    questionsHTML += '</table></div>';
+    
+    const templateParams = {
+        to_email: TARGET_EMAIL,
+        student_name: name,
+        student_class: studentClass,
+        exam_date: date,
+        total_score: score,
+        success_rate: successRate,
+        grade: badge,
+        answers_table: questionsHTML
+    };
+    
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
+        .then(() => {
+            status.textContent = currentLang === 'ar' ? '✅ تم الإرسال بنجاح!' : '✅ Sent successfully!';
+            status.style.color = '#16a34a';
+            btn.textContent = currentLang === 'ar' ? '✓ تم' : '✓ Sent';
+            alert(currentLang === 'ar' ? 'تم إرسال النتيجة للمعلم بنجاح!' : 'Result sent to teacher successfully!');
+        })
+        .catch((error) => {
+            status.textContent = currentLang === 'ar' ? '❌ فشل الإرسال' : '❌ Failed to send';
+            status.style.color = '#dc2626';
+            btn.disabled = false;
+            btn.textContent = currentLang === 'ar' ? '📧 حاول مرة أخرى' : '📧 Try Again';
+            alert(currentLang === 'ar' ? 'فشل الإرسال: ' + error.text : 'Failed: ' + error.text);
+        });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const saved = loadState();
+    if (saved && saved.seed) {
+        currentSeed = saved.seed;
+        currentLang = saved.lang || 'ar';
+        timeRemaining = saved.timeRemaining !== undefined ? saved.timeRemaining : TOTAL_TIME;
+        answersVisible = saved.answersVisible || false;
+    } else {
+        currentSeed = Date.now();
+    }
+    
+    document.getElementById('btn-ar').classList.toggle('active', currentLang === 'ar');
+    document.getElementById('btn-en').classList.toggle('active', currentLang === 'en');
+    document.body.classList.toggle('en-mode', currentLang === 'en');
+    document.documentElement.lang = currentLang;
+    document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+    
+    document.querySelectorAll('[data-ar]').forEach(el => {
+        el.textContent = el.getAttribute('data-' + currentLang);
+    });
+    
+    document.querySelectorAll('[data-placeholder-ar]').forEach(el => {
+        el.placeholder = el.getAttribute('data-placeholder-' + currentLang);
+    });
+    
+    prepareShuffledExam();
+    renderExam();
+    if (saved) {
+        if (saved.studentName) document.getElementById('studentName').value = saved.studentName;
+        if (saved.studentClass) document.getElementById('studentClass').value = saved.studentClass;
+        if (saved.examDate) document.getElementById('examDate').value = saved.examDate;
+        if (saved.answers) restoreAnswers(saved.answers);
+    }
+    setupAnswerListeners();
+    setupInputListeners();
+    startTimer();
+});
+window.addEventListener('beforeunload', () => saveState(false));
+</script>
+</body>
+</html>
